@@ -1,5 +1,6 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+from .views import VacancyList
 
 urlpatterns = [
     path("companies/", views.company_list),
@@ -8,4 +9,5 @@ urlpatterns = [
     path("vacancies/", views.vacancy_list),
     path("vacancies/<int:id>/", views.vacancy_detail),
     path("vacancies/top_ten/", views.top_ten_vacancies),
+    path("vacancies/", VacancyList.as_view(), name="vacancy-list"),
 ]
